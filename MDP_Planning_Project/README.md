@@ -5,7 +5,6 @@ This project has two main objectives:
 
 1. **Develop a General MDP Solver**  
    - Create a solver that can handle any given MDP problem, provided it adheres to a specific format.  
-<br>
 2. **Formulate and Solve a Gridworld MDP**  
    - Define an MDP for a gridworld environment and compute the optimal policy.  
 
@@ -28,7 +27,7 @@ The Markov Decision Process (MDP) is defined as follows:
 #### **Reward Function \( R \)**
 - $R(s,a,s')$ → Reward received for transitioning from state $s$ to state $s'$ after taking action $a$.  
 
-#### **Discount Factor \( \gamma \)**
+#### **Discount Factor \( $\gamma$ \)**
 - $\gamma \in [0,1]$  
 
 ---
@@ -178,30 +177,30 @@ Since the **floor is icy**, the agent can **land in multiple states** after taki
 
 - **Choosing Action `0` (Move Forward):**  
   - If a wall is present right in front:  
-    - $ P(\text{Stay}) = 1.0 $  
+    - $P(\text{Stay}) = 1.0$  
   - If a wall is present 2 steps away:  
-    - $ P(\text{Move\ 1\ step}) = 1.0 $  
+    - $P(\text{Move\ 1\ step}) = 1.0$  
   - If a wall is present 3 steps away:  
-    - $ P(\text{Move\ 1\ step}) = 0.5 $
-    - $ P(\text{Move\ 2\ steps}) = 0.5 $  
+    - $P(\text{Move\ 1\ step}) = 0.5$
+    - $P(\text{Move\ 2\ steps}) = 0.5$  
   - Otherwise:  
-    - $ P(\text{Move\ 1\ step}) = 0.5 $  
-    - $ P(\text{Move\ 2\ steps}) = 0.3 $  
-    - $ P(\text{Move\ 3\ steps}) = 0.2 $
+    - $P(\text{Move\ 1\ step}) = 0.5$  
+    - $P(\text{Move\ 2\ steps}) = 0.3$  
+    - $P(\text{Move\ 3\ steps}) = 0.2$
     <br>
     <br>
 - **Choosing Action `1` (Turn Left):**  
-  - $ P(\text{Left\ Turn}) = 0.9 $  
-  - $ P(\text{Turn\ Back}) = 0.1 $  
+  - $P(\text{Left\ Turn}) = 0.9$  
+  - $P(\text{Turn\ Back}) = 0.1$  
 
 - **Choosing Action `2` (Turn Right):**  
-  - $ P(\text{Right\ Turn}) = 0.9 $  
-  - $ P(\text{Turn\ Back}) = 0.1 $  
+  - $P(\text{Right\ Turn}) = 0.9$  
+  - $P(\text{Turn\ Back}) = 0.1$  
 
 - **Choosing Action `3` (Turn Around):**  
-  - $ P(\text{Turn\ Back}) = 0.8 $  
-  - $ P(\text{Left\ Turn}) = 0.1 $  
-  - $ P(\text{Right\ Turn}) = 0.1 $  
+  - $P(\text{Turn\ Back}) = 0.8$  
+  - $P(\text{Left\ Turn}) = 0.1$  
+  - $P(\text{Right\ Turn}) = 0.1$  
 
 
 ---
@@ -216,15 +215,15 @@ Each state is represented as **$(i, j, d, k)$**:
 - **$d$** → Direction the agent is facing ( $0 \leq d < 4$ )  
 - **$k$** → Whether the agent has the key or not ( $0 \leq k < 2$ )  
 
-$
+$$
 k =
 \begin{cases} 
 1, & \text{if the agent has the key} \\
 0, & \text{otherwise}
 \end{cases}
-$
+$$
 
-$
+$$
 d =
 \begin{cases} 
 0, & \text{Facing Up} \\
@@ -232,7 +231,7 @@ d =
 2, & \text{Facing Down} \\
 3, & \text{Facing Right}
 \end{cases}
-$
+$$
 
 #### **Reward Function**
 - **All states** have a reward of `-1` to encourage the agent to reach the goal as quickly as possible.  
